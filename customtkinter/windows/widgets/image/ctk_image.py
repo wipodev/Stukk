@@ -118,5 +118,3 @@ class CTkImage:
             return self._get_scaled_dark_photo_image(scaled_size)
         elif appearance_mode == "dark" and self._dark_image is None:
             return self._get_scaled_light_photo_image(scaled_size)
-
-

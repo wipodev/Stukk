@@ -397,8 +397,11 @@ class CTkOptionMenu(CTkBaseClass):
         return self._current_value
 
     def _clicked(self, event=0):
-        if self._state is not tkinter.DISABLED and len(self._values) > 0:
-            self._open_dropdown_menu()
+        if self._dropdown_menu.is_open():
+            self._dropdown_menu.close()
+        else:
+            if self._state is not tkinter.DISABLED and len(self._values) > 0:
+                self._open_dropdown_menu()
 
     def bind(self, sequence: str = None, command: Callable = None, add: Union[str, bool] = True):
         """ called on the tkinter.Canvas """

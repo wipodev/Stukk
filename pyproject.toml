@@ -2,15 +2,60 @@
 requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
 
+[project]
+name = "stukk"
+version = "1.0.0"
+dependencies = [
+  "darkdetect",
+  "typing_extensions; python_version <= '3.7'",
+  "packaging"
+]
+requires-python = ">=3.7"
+authors = [
+  {name = "Tom Schimansky"},
+  {name = "WipoDev"}
+]
+maintainers = [
+  {name = "WipoDev"},]
+description = "Create modern looking GUIs with Python"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = ["stukk", "customtkinter", "gui", "python", "tkinter"]
+classifiers = [
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3 :: Only"
+]
+
+[project.urls]
+homepage = "https://github.com/wipodev/stukk"
+documentation = "https://customtkinter.tomschimansky.com/documentation"
+repository = "https://github.com/wipodev/stukk"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = [
+  "customtkinter",
+  "customtkinter.windows",
+  "customtkinter.windows.widgets",
+  "customtkinter.windows.widgets.appearance_mode",
+  "customtkinter.windows.widgets.core_rendering",
+  "customtkinter.windows.widgets.core_widget_classes",
+  "customtkinter.windows.widgets.font",
+  "customtkinter.windows.widgets.image",
+  "customtkinter.windows.widgets.scaling",
+  "customtkinter.windows.widgets.theme",
+  "customtkinter.windows.widgets.utility"
+]
+
 [tool.tbump]
-github_url = "https://github.com/TomSchimansky/CustomTkinter"
+github_url = "https://github.com/wipodev/stukk"
 
 [tool.tbump.version]
-current = "5.2.2"
-
-# Example of a semver regexp.
-# Make sure this matches current_version before
-# using tbump
+current = "1.0.0"
 regex = '''
   (?P<major>\d+)
   \.
@@ -20,15 +65,12 @@ regex = '''
   '''
 
 [tool.tbump.git]
-message_template = "Bump to {new_version}"
+message_template = "release: version {new_version} 🎉"
 tag_template = "v{new_version}"
 
-# For each file to patch, add a [[tool.tbump.file]] config
-# section containing the path of the file, relative to the
-# tbump.toml location.
 [[tool.tbump.file]]
-src = "setup.cfg"
+src = "pyproject.toml"
 
 [[tool.tbump.file]]
 src = "customtkinter/__init__.py"
-search = "__version__ = \"{current_version}\""
+search = '__version__ = "{current_version}"'

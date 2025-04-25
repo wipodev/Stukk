@@ -444,4 +444,3 @@ class CTkSegmentedButton(CTkFrame):
 
     def unbind(self, sequence=None, funcid=None):
         raise NotImplementedError
-

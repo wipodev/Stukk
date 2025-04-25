@@ -38,6 +38,7 @@ class DropdownMenu(tkinter.Menu, CTkAppearanceModeBaseClass, CTkScalingBaseClass
 
         self._configure_menu_for_platforms()
 
+        self._is_open = False
         self._values = values
         self._command = command
 
@@ -116,6 +117,15 @@ class DropdownMenu(tkinter.Menu, CTkAppearanceModeBaseClass, CTkScalingBaseClass
             self.post(int(x), int(y))
         else:  # Linux
             self.tk_popup(int(x), int(y))
+
+        self._is_open = True
+
+    def close(self):
+        self.unpost()
+        self._is_open = False
+
+    def is_open(self):
+        return self._is_open
 
     def configure(self, **kwargs):
         if "fg_color" in kwargs:

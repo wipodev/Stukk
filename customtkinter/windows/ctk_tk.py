@@ -236,7 +236,7 @@ class CTk(CTK_PARENT_CLASS, CTkAppearanceModeBaseClass, CTkScalingBaseClass):
             # if not the user already called iconbitmap method, set icon
             if not self._iconbitmap_method_called:
                 customtkinter_directory = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-                self.iconbitmap(os.path.join(customtkinter_directory, "assets", "icons", "CustomTkinter_icon_Windows.ico"))
+                self.iconbitmap(os.path.join(customtkinter_directory, "assets", "icons", "Stukk_icon_Windows.ico"))
         except Exception:
             pass
 
